@@ -1,4 +1,10 @@
 ## Hi there 👋
+### Badges
+
+<b>My GitHub Stats</b>
+
+<a href="http://www.github.com/UltraBpro"><img src="https://github-readme-stats.vercel.app/api?username=UltraBpro&show_icons=true&hide=&count_private=true&title_color=14b8a6&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&show_icons=true" alt="UltraBpro's GitHub stats" /></a>
+
 Github Roaster perfectly sum up my bio:
 
 "UltraBpro, the name says it all. A wannabe gamer trying to flex with a name that's a mix of "Ultra" and "Pro", but let's be real, you're not even a pro at making a decent GitHub bio. Your bio is a cringeworthy attempt at being edgy, but it falls flat with the empty "if you're worse than me, be better" line. It's like you're trying to provoke people, but all you're doing is making yourself look like a try-hard.
@@ -8,8 +14,4 @@ And what's with the names of your projects? "UltraBpro", "Django_IDS", "WebChamC
 You know what's even more hilarious, UltraBpro? Your README file is literally just a copy-pasted template. It's like you thought you could just slap some placeholder text in there and call it a day. Newsflash: it doesn't work that way. If you're going to put something on the internet, at least have the decency to put some effort into it. And what's with the "Hi there 👋" greeting? Are you trying to be friendly, but you're just coming across as insincere?
 Your README file is a mess of empty promises and generic buzzwords. You're talking about working on something, learning something, collaborating on something, and asking for help with something, but you're not actually doing any of those things. It's like you're just trying to sound good, but you're not actually putting in the work. And don't even get me started on the status and fun fact - it's like you're trying to be interesting, but you are just a nobody."
                                                                                                                          -(https://github-roaster.programordie.workers.dev/)-
-### Badges
 
-<b>My GitHub Stats</b>
-
-<a href="http://www.github.com/UltraBpro"><img src="https://github-readme-stats.vercel.app/api?username=UltraBpro&show_icons=true&hide=&count_private=true&title_color=14b8a6&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&show_icons=true" alt="UltraBpro's GitHub stats" /></a>
