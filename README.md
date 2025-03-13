@@ -1,5 +1,4 @@
 ## Hi there 👋
-======================================================================================================================================
 Github Roaster perfectly sum up my bio:
 
 "UltraBpro, the name says it all. A wannabe gamer trying to flex with a name that's a mix of "Ultra" and "Pro", but let's be real, you're not even a pro at making a decent GitHub bio. Your bio is a cringeworthy attempt at being edgy, but it falls flat with the empty "if you're worse than me, be better" line. It's like you're trying to provoke people, but all you're doing is making yourself look like a try-hard.
