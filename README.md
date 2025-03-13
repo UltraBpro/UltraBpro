@@ -13,5 +13,5 @@ And what's with the names of your projects? "UltraBpro", "Django_IDS", "WebChamC
  
 You know what's even more hilarious, UltraBpro? Your README file is literally just a copy-pasted template. It's like you thought you could just slap some placeholder text in there and call it a day. Newsflash: it doesn't work that way. If you're going to put something on the internet, at least have the decency to put some effort into it. And what's with the "Hi there 👋" greeting? Are you trying to be friendly, but you're just coming across as insincere?
 Your README file is a mess of empty promises and generic buzzwords. You're talking about working on something, learning something, collaborating on something, and asking for help with something, but you're not actually doing any of those things. It's like you're just trying to sound good, but you're not actually putting in the work. And don't even get me started on the status and fun fact - it's like you're trying to be interesting, but you are just a nobody."
-                                                                                                                         -(https://github-roaster.programordie.workers.dev/)-
+                                                                                                                 - (https://github-roaster.programordie.workers.dev/) -
 
