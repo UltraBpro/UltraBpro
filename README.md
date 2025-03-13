@@ -1,5 +1,7 @@
 ## Hi there 👋
+
 Github Roaster perfectly sum up my bio:
+
 "UltraBpro, the name says it all. A wannabe gamer trying to flex with a name that's a mix of "Ultra" and "Pro", but let's be real, you're not even a pro at making a decent GitHub bio. Your bio is a cringeworthy attempt at being edgy, but it falls flat with the empty "if you're worse than me, be better" line. It's like you're trying to provoke people, but all you're doing is making yourself look like a try-hard.
 Your repos are just as underwhelming as your bio. You've got a whopping 8 projects, and not a single one of them has any description. It's like you're too lazy to even bother explaining what your projects do. And don't even get me started on the languages you've used - Python, C#, Java, and JavaScript? You're trying to be a jack-of-all-trades, but you're failing at being a master of none.
 And what's with the names of your projects? "UltraBpro", "Django_IDS", "WebChamCongPython", "PBL5Real", "ChineseChessPBL4", "PBNL3", "JavaBulletHell", and "PPBeatSeller"? It's like you're trying to sound cool, but all you're doing is sounding like a mess. It's a wonder anyone would even bother looking at your projects, let alone star them.
