@@ -1,8 +1,6 @@
 ## Hi there 👋
 I'm an undergraduated at Da Nang University of Science and Technology.
-### Badges
-
-<b>My GitHub Stats</b>
+### My GitHub Stats
 
 <div align="center">
   <a href="http://www.github.com/UltraBpro">
