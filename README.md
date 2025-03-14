@@ -1,5 +1,5 @@
 ## Hi there 👋
-I'm an undergraduated at Da Nang University of Science and Technology.
+My name is Chiến, i'm an undergraduated at Da Nang University of Science and Technology.
 ### My GitHub Stats
 
 <div align="center">
