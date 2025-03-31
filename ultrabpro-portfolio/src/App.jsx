@@ -51,17 +51,6 @@ function App() {
   // Projects data with folder names only
   const projects = [
     {
-      id: 1,
-      name: "Game-Themed Portfolio",
-      category: "Web Development",
-      folderName: "portfolio",
-      description: "A retro game-themed personal portfolio website with interactive elements, secret Konami code features, and responsive design. Built with modern React and CSS animations.",
-      position: "Full-Stack Developer",
-      tech: ["React", "JavaScript", "CSS3", "Responsive Design"],
-      link: "https://github.com/UltraBpro/UltraBpro",
-      demo: window.location.origin,
-    },
-    {
       id: 2,
       name: "Hotel Management System",
       category: "Desktop Applications",
@@ -122,6 +111,17 @@ function App() {
       tech: ["Java", "Game Development", "2D Graphics"],
       link: "https://github.com/UltraBpro/JavaBulletHell",
       demo: "https://www.youtube.com/watch?v=cZ6t5GBCda8",
+    },
+    {
+      id: 8,
+      name: "Game-Themed Portfolio",
+      category: "Web Development",
+      folderName: "portfolio",
+      description: "A retro game-themed personal portfolio website with interactive elements, secret Konami code features, and responsive design. Built with modern React and CSS animations.",
+      position: "Full-Stack Developer",
+      tech: ["React", "JavaScript", "CSS3", "Responsive Design"],
+      link: "https://github.com/UltraBpro/UltraBpro",
+      demo: window.location.origin,
     },
   ];
 
@@ -511,8 +511,7 @@ function App() {
                 <p className="character-description">
                   Welcome to my portfolio! I'm a passionate developer with
                   expertise in web development, game programming, and software
-                  engineering. I love creating innovative solutions and tackling
-                  challenging problems.
+                  engineering.
                 </p>
                 <div className="social-buttons">
                   <a
@@ -585,33 +584,46 @@ function App() {
           <div className="projects-screen">
             <h2 className="section-title">SELECT YOUR PROJECT</h2>
             
-            {!characterSelected ? (
-              <div className="character-select-container">
-                <div className="character-select" id="projectsContainer">
-                  {filteredProjects.map((project) => (
-                    <div
-                      key={project.id}
-                      className="character-card"
-                      onClick={() => setCharacterSelected(project)}
-                    >
-                      <img 
-                        src={`/projects/${project.folderName}/logo.png`} 
-                        alt={project.name}
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = "https://placehold.co/200x300/227/fff?text=" + encodeURIComponent(project.name);
-                        }}
-                      />
-                      <h3>{project.name}</h3>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : (
+            {characterSelected ? (
               <ProjectDetails 
                 project={characterSelected} 
                 onBack={() => setCharacterSelected(null)} 
               />
+            ) : (
+              <>
+                <div className="category-filters">
+                  {categories.map(category => (
+                    <button 
+                      key={category}
+                      className={`category-button ${activeCategory === category ? 'active' : ''}`}
+                      onClick={() => setActiveCategory(category)}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+                <div className="character-select-container">
+                  <div className="character-select" id="projectsContainer">
+                    {filteredProjects.map((project) => (
+                      <div
+                        key={project.id}
+                        className="character-card"
+                        onClick={() => setCharacterSelected(project)}
+                      >
+                        <img 
+                          src={`/projects/${project.folderName}/logo.png`} 
+                          alt={project.name}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = "https://placehold.co/200x300/227/fff?text=" + encodeURIComponent(project.name);
+                          }}
+                        />
+                        <h3>{project.name}</h3>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
             )}
           </div>
         )}
