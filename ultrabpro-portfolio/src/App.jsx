@@ -48,54 +48,60 @@ function App() {
   // Projects data
   const projects = [
     {
-      id: 2,
-      name: "Chinese Chess",
-      image: "https://placehold.co/200x300/722/fff?text=Chess",
-      description:
-        "A digital implementation of traditional Chinese Chess game.",
-      tech: [".NET", "C#", "Game Development"],
-      link: "https://github.com/UltraBpro/ChineseChessPBL4",
+      id: 1,
+      name: "Hotel Management System",
+      image: "https://placehold.co/200x300/227/fff?text=Hotel+Management",
+      description: "A .NET desktop application for hotel management with Windows Forms UI and LINQ to Entities for database queries.",
+      position: "Full-Stack Developer",
+      tech: [".NET", "C#", "SQL Server", "Windows Forms"],
+      link: "https://github.com/UltraBpro/PBNL3",
     },
     {
       id: 2,
-      name: "Chinese Chess",
+      name: "Chinese Chess (Xiangqi)",
       image: "https://placehold.co/200x300/722/fff?text=Chess",
-      description:
-        "A digital implementation of traditional Chinese Chess game.",
-      tech: [".NET", "C#", "Game Development"],
+      description: "Online Chinese Chess game with AI opponent using minimax algorithm and TCP protocol for real-time multiplayer.",
+      position: "Full-Stack Developer",
+      tech: ["Unity", "C#", "Game Development", "TCP/IP"],
       link: "https://github.com/UltraBpro/ChineseChessPBL4",
+      demo: "https://www.youtube.com/watch?v=BEHGfq9IDzI",
     },
     {
       id: 3,
-      name: "Java Bullet Hell",
+      name: "Intrusion Detection System",
+      image: "https://placehold.co/200x300/272/fff?text=IDS",
+      description: "An IDS for Django web apps that detects and warns of attacks by reading logs using regex with flexible rule updates.",
+      position: "Full-Stack Developer",
+      tech: ["Python", "Django", "Regex", "Security"],
+      link: "https://github.com/UltraBpro/Django_IDS",
+    },
+    {
+      id: 4,
+      name: "Geolocation Attendance App",
+      image: "https://placehold.co/200x300/227/fff?text=Attendance",
+      description: "A web-based attendance tracking system using geolocation services to verify user's physical presence.",
+      position: "Full-Stack Developer",
+      tech: ["Python", "Django", "Geolocation API", "Web Development"],
+      link: "https://github.com/UltraBpro/WebChamCongPython",
+    },
+    {
+      id: 5,
+      name: "Library Management System",
+      image: "https://placehold.co/200x300/252/fff?text=Library",
+      description: "A university library management web application with search functionality and highlighted books display.",
+      position: "Full-Stack Developer",
+      tech: ["Python", "Django", "Web Development", "Database"],
+      link: "#",
+    },
+    {
+      id: 6,
+      name: "Java Bullet Hell Game",
       image: "https://placehold.co/200x300/272/fff?text=Bullet+Hell",
-      description: "A bullet hell style game developed with Java.",
-      tech: ["Java", "Game Development"],
+      description: "A basic 2D bullet hell shooting game using pure Java, without relying on any pre-existing game engines.",
+      position: "Full-Stack Developer",
+      tech: ["Java", "Game Development", "2D Graphics"],
       link: "https://github.com/UltraBpro/JavaBulletHell",
-    },
-    {
-      id: 4,
-      name: "Web Attendance System",
-      image: "https://placehold.co/200x300/227/fff?text=Attendance",
-      description: "A web-based attendance tracking system built with Python.",
-      tech: ["Python", "Web Development"],
-      link: "https://github.com/UltraBpro/WebChamCongPython",
-    },
-    {
-      id: 4,
-      name: "Web Attendance System",
-      image: "https://placehold.co/200x300/227/fff?text=Attendance",
-      description: "A web-based attendance tracking system built with Python.",
-      tech: ["Python", "Web Development"],
-      link: "https://github.com/UltraBpro/WebChamCongPython",
-    },
-    {
-      id: 4,
-      name: "Web Attendance System",
-      image: "https://placehold.co/200x300/227/fff?text=Attendance",
-      description: "A web-based attendance tracking system built with Python.",
-      tech: ["Python", "Web Development"],
-      link: "https://github.com/UltraBpro/WebChamCongPython",
+      demo: "https://www.youtube.com/watch?v=cZ6t5GBCda8",
     },
   ];
 
@@ -413,6 +419,9 @@ function App() {
                   />
                   <div className="project-info">
                     <h3>{characterSelected.name}</h3>
+                    <div className="project-position">
+                      <span>Position:</span> {characterSelected.position}
+                    </div>
                     <p>{characterSelected.description}</p>
                     <div className="tech-stack">
                       <h4>TECH STACK:</h4>
@@ -422,14 +431,26 @@ function App() {
                         ))}
                       </ul>
                     </div>
-                    <a
-                      href={characterSelected.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="view-button"
-                    >
-                      VIEW PROJECT
-                    </a>
+                    <div className="project-links">
+                      <a
+                        href={characterSelected.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="view-button"
+                      >
+                        VIEW CODE
+                      </a>
+                      {characterSelected.demo && (
+                        <a
+                          href={characterSelected.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="demo-button"
+                        >
+                          WATCH DEMO
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
