@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import ProjectDetails from './components/ProjectDetails';
+import ContactForm from './components/ContactForm';
 
 function App() {
   const currentYear = new Date().getFullYear();
@@ -623,35 +624,7 @@ function App() {
               </div>
             </div>
 
-            <div className="contact-form">
-              <div className="form-group">
-                <label>YOUR NAME</label>
-                <input type="text" placeholder="ENTER YOUR NAME" />
-              </div>
-              <div className="form-group">
-                <label>YOUR EMAIL</label>
-                <input type="email" placeholder="ENTER YOUR EMAIL" />
-              </div>
-              <div className="form-group">
-                <label>YOUR MESSAGE</label>
-                <textarea placeholder="TYPE YOUR MESSAGE HERE"></textarea>
-              </div>
-              <button className="fight-button">FIGHT! (SEND MESSAGE)</button>
-              <div className="contact-info">
-                <div className="contact-item">
-                  <span className="contact-label">EMAIL:</span>
-                  <span className="contact-value">b3bpro123@gmail.com</span>
-                </div>
-                <div className="contact-item">
-                  <span className="contact-label">PHONE:</span>
-                  <span className="contact-value">+84 762 762 892</span>
-                </div>
-                <div className="contact-item">
-                  <span className="contact-label">LOCATION:</span>
-                  <span className="contact-value">Da Nang, Vietnam</span>
-                </div>
-              </div>
-            </div>
+            <ContactForm />
           </div>
         )}
       </main>
