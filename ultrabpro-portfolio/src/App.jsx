@@ -586,7 +586,7 @@ function App() {
                   src="https://placehold.co/200x300/333/fff?text=CHIEN"
                   alt="Opponent"
                 />
-                <h3>LE VAN CHIEN</h3>
+                <h3>ULTRABPRO</h3>
               </div>
             </div>
 

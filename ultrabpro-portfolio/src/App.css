@@ -1107,8 +1107,9 @@ body:not(.secret-mode) .glitch-text {
   opacity: 0.15;
 }
 
-/* Add some scanlines */
-.scanlines {
+/* Permanent scanlines effect */
+body::before {
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -1116,13 +1117,53 @@ body:not(.secret-mode) .glitch-text {
   height: 100%;
   background: linear-gradient(
     to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
     transparent 50%,
-    rgba(0, 0, 0, 0.5) 51%
+    transparent 100%
   );
   background-size: 100% 4px;
   pointer-events: none;
-  z-index: 1400;
-  opacity: 0.1;
+  z-index: 9999;
+  opacity: 0.3;
+  animation: scanline 50s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+/* Add a subtle CRT flicker */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.5;
+  animation: flicker 5s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.45;
+  }
 }
 
 /* Skills in About section */
@@ -1473,7 +1514,8 @@ body.secret-mode::after {
   background-size: 100% 4px;
   pointer-events: none;
   z-index: 1001;
-  opacity: 0.3;
+  opacity: 0.5;
+  animation: scanline 25s linear infinite;
 }
 
 /* Glitchy images in secret mode */
