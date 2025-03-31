@@ -216,12 +216,28 @@ body.secret-mode .blink {
   justify-content: center;
 }
 
-.character-avatar img {
+/* Character avatar with rounded border */
+.character-avatar {
+  position: relative;
   width: 250px;
-  height: 300px;
+  height: 250px;
+  margin: 0 auto;
+}
+
+.character-avatar img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 3px solid var(--primary-color);
-  box-shadow: 0 0 20px rgba(255, 62, 62, 0.5);
+  border-radius: 50%;
+  border: 4px solid var(--secondary-color);
+  box-shadow: 0 0 15px rgba(62, 132, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.character-avatar img:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(255, 62, 62, 0.6);
+  transform: scale(1.02);
 }
 
 .character-info {

@@ -299,7 +299,7 @@ function App() {
             <div className="character-intro">
               <div className="character-avatar">
                 <img
-                  src="https://placehold.co/200x300/333/fff?text=CHIEN"
+                  src="102210199-lower.jpg"
                   alt="Character Avatar"
                 />
               </div>
