@@ -1,6 +1,6 @@
 ## Hi there 👋
-My name is Chiến, i'm an undergraduated at Da Nang University of Science and Technology.
-
+* My name is Chiến, i'm an undergraduated at Da Nang University of Science and Technology.
+* 🖥️  See my portfolio at [My Portfolio](https://ultrabpro-portfolio.vercel.app/)
 ### Skills
 
 <p align="left">
