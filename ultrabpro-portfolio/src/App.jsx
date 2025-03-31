@@ -111,6 +111,17 @@ function App() {
       link: "https://github.com/UltraBpro/JavaBulletHell",
       demo: "https://www.youtube.com/watch?v=cZ6t5GBCda8",
     },
+    {
+      id: 7,
+      name: "Game-Themed Portfolio",
+      category: "Web Development",
+      image: "https://placehold.co/200x300/227/fff?text=Portfolio",
+      description: "A retro game-themed personal portfolio website with interactive elements, secret Konami code features, and responsive design. Built with modern React and CSS animations.",
+      position: "Full-Stack Developer",
+      tech: ["React", "JavaScript", "CSS3", "Responsive Design"],
+      link: "https://github.com/UltraBpro/UltraBpro",
+      demo: window.location.origin, // Links to the current site
+    },
   ];
 
   // Skills data
@@ -460,7 +471,7 @@ function App() {
                           rel="noopener noreferrer"
                           className="demo-button"
                         >
-                          WATCH DEMO
+                          VIEW DEMO
                         </a>
                       )}
                     </div>
