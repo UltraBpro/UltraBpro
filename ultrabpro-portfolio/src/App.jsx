@@ -25,6 +25,8 @@ function App() {
   ]);
   const [showCoinMessage, setShowCoinMessage] = useState(false);
   const [healthDepleted, setHealthDepleted] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const categories = ["All", "Web Development", "Desktop Applications", "Game Development"];
 
   // Set page title
   useEffect(() => {
@@ -45,11 +47,12 @@ function App() {
     "a",
   ];
 
-  // Projects data
+  // Projects data with categories
   const projects = [
     {
       id: 1,
       name: "Hotel Management System",
+      category: "Desktop Applications",
       image: "https://placehold.co/200x300/227/fff?text=Hotel+Management",
       description: "A .NET desktop application for hotel management with Windows Forms UI and LINQ to Entities for database queries.",
       position: "Full-Stack Developer",
@@ -59,6 +62,7 @@ function App() {
     {
       id: 2,
       name: "Chinese Chess (Xiangqi)",
+      category: "Game Development",
       image: "https://placehold.co/200x300/722/fff?text=Chess",
       description: "Online Chinese Chess game with AI opponent using minimax algorithm and TCP protocol for real-time multiplayer.",
       position: "Full-Stack Developer",
@@ -69,6 +73,7 @@ function App() {
     {
       id: 3,
       name: "Intrusion Detection System",
+      category: "Web Development",
       image: "https://placehold.co/200x300/272/fff?text=IDS",
       description: "An IDS for Django web apps that detects and warns of attacks by reading logs using regex with flexible rule updates.",
       position: "Full-Stack Developer",
@@ -78,6 +83,7 @@ function App() {
     {
       id: 4,
       name: "Geolocation Attendance App",
+      category: "Web Development",
       image: "https://placehold.co/200x300/227/fff?text=Attendance",
       description: "A web-based attendance tracking system using geolocation services to verify user's physical presence.",
       position: "Full-Stack Developer",
@@ -87,6 +93,7 @@ function App() {
     {
       id: 5,
       name: "Library Management System",
+      category: "Web Development",
       image: "https://placehold.co/200x300/252/fff?text=Library",
       description: "A university library management web application with search functionality and highlighted books display.",
       position: "Full-Stack Developer",
@@ -96,6 +103,7 @@ function App() {
     {
       id: 6,
       name: "Java Bullet Hell Game",
+      category: "Game Development",
       image: "https://placehold.co/200x300/272/fff?text=Bullet+Hell",
       description: "A basic 2D bullet hell shooting game using pure Java, without relying on any pre-existing game engines.",
       position: "Full-Stack Developer",
@@ -117,6 +125,11 @@ function App() {
     { name: "Unity" },
     { name: "SQL" },
   ];
+
+  // Filter projects based on active category
+  const filteredProjects = activeCategory === "All" 
+    ? projects 
+    : projects.filter(project => project.category === activeCategory);
 
   // Health bar effect
   useEffect(() => {
@@ -402,7 +415,7 @@ function App() {
 
         {selectedSection === "projects" && (
           <div className="projects-screen">
-            <h2 className="section-title">SELECT PROJECT</h2>
+            <h2 className="section-title">SELECT YOUR PROJECT</h2>
             
             {characterSelected ? (
               <div className="project-details">
@@ -455,20 +468,33 @@ function App() {
                 </div>
               </div>
             ) : (
-              <div className="character-select-container">
-                <div className="character-select" id="projectsContainer">
-                  {projects.map((project) => (
-                    <div
-                      key={project.id}
-                      className="character-card"
-                      onClick={() => setCharacterSelected(project)}
+              <>
+                <div className="category-filters">
+                  {categories.map(category => (
+                    <button 
+                      key={category}
+                      className={`category-button ${activeCategory === category ? 'active' : ''}`}
+                      onClick={() => setActiveCategory(category)}
                     >
-                      <img src={project.image} alt={project.name} />
-                      <h3>{project.name}</h3>
-                    </div>
+                      {category}
+                    </button>
                   ))}
                 </div>
-              </div>
+                <div className="character-select-container">
+                  <div className="character-select" id="projectsContainer">
+                    {filteredProjects.map((project) => (
+                      <div
+                        key={project.id}
+                        className="character-card"
+                        onClick={() => setCharacterSelected(project)}
+                      >
+                        <img src={project.image} alt={project.name} />
+                        <h3>{project.name}</h3>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
             )}
           </div>
         )}
