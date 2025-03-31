@@ -101,7 +101,6 @@ function App() {
       description: "A university library management web application with search functionality and highlighted books display.",
       position: "Full-Stack Developer",
       tech: ["Python", "Django", "Web Development", "Database"],
-      link: "#",
     },
     {
       id: 7,

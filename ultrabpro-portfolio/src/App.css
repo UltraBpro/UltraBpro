@@ -426,30 +426,33 @@ body.secret-mode .blink {
   overflow: hidden;
 }
 
-/* Simplified project gallery styling */
+/* Fixed-size project gallery styling */
 .project-gallery {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px; /* Increased max-width */
+  height: 450px; /* Fixed height */
   margin-bottom: 20px;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden; /* Prevent overflow */
+  border: 2px solid var(--secondary-color); /* Optional: adds a border */
 }
 
 .gallery-image {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ensures image fits without distortion */
   display: block;
 }
 
 /* Project info takes full width below gallery in mobile */
 .project-info {
   padding: 20px;
-  width: 100%;
+  overflow-y: visible; /* Change from auto to visible to remove scrollbar */
+  max-height: none; /* Remove max-height constraint */
 }
 
 /* On larger screens, use a side-by-side layout */
@@ -460,14 +463,15 @@ body.secret-mode .blink {
   }
   
   .project-gallery {
-    flex: 1;
-    max-width: 50%;
+    flex: 0 0 600px; /* Fixed width in row layout */
+    height: 450px; /* Maintain fixed height */
   }
   
   .project-info {
     flex: 1;
-    max-width: 50%;
     padding: 20px;
+    max-height: none; /* Remove height limit */
+    overflow-y: visible; /* Remove scrollbar */
   }
 }
 
@@ -475,6 +479,10 @@ body.secret-mode .blink {
 @media (max-width: 991px) {
   .project-info {
     padding: 20px;
+  }
+  
+  .project-gallery {
+    height: 350px; /* Slightly smaller on mobile */
   }
 }
 
