@@ -38,7 +38,7 @@ body {
   color: var(--light-text);
   font-family: 'Press Start 2P', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  background-image: url('https://i.pinimg.com/originals/c7/f4/b7/c7f4b7922cad40cd75fb214a63bec12d.gif');
+  background-image: url('/background-peace.gif');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -60,7 +60,7 @@ body {
 
 /* Secret mode activated by Konami code */
 body.secret-mode {
-  background-image: url('https://i.imgur.com/tjVOWZY.gif');
+  background-image: url('/background-secret.gif');
   animation: backgroundPulse 2s infinite alternate;
   position: relative;
 }
