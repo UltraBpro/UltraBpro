@@ -48,13 +48,13 @@ function App() {
   // Projects data
   const projects = [
     {
-      id: 1,
-      name: "Intrusion Detection System",
-      image: "https://placehold.co/200x300/222/fff?text=IDS",
+      id: 2,
+      name: "Chinese Chess",
+      image: "https://placehold.co/200x300/722/fff?text=Chess",
       description:
-        "A Django-based intrusion detection system for network security.",
-      tech: ["Python", "Django", "Machine Learning"],
-      link: "https://github.com/UltraBpro/Django_IDS",
+        "A digital implementation of traditional Chinese Chess game.",
+      tech: [".NET", "C#", "Game Development"],
+      link: "https://github.com/UltraBpro/ChineseChessPBL4",
     },
     {
       id: 2,
@@ -347,7 +347,7 @@ function App() {
                     </svg>
                   </a>
                   <a
-                    href="https://youtube.com"
+                    href="https://www.youtube.com/@TheSuperiorBpro"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-icon youtube"
@@ -365,7 +365,7 @@ function App() {
                     </svg>
                   </a>
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/MordeNightfall/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-icon facebook"
@@ -396,7 +396,7 @@ function App() {
 
         {selectedSection === "projects" && (
           <div className="projects-screen">
-            <h2 className="section-title">SELECT YOUR PROJECT</h2>
+            <h2 className="section-title">SELECT PROJECT</h2>
             
             {characterSelected ? (
               <div className="project-details">
@@ -482,7 +482,6 @@ function App() {
                       <div className="skill-badge"><span className="skill-name">C#</span></div>
                       <div className="skill-badge"><span className="skill-name">Python</span></div>
                       <div className="skill-badge"><span className="skill-name">Java</span></div>
-                      <div className="skill-badge"><span className="skill-name">JavaScript</span></div>
                     </div>
                   </div>
                   
@@ -492,7 +491,6 @@ function App() {
                       <div className="skill-badge"><span className="skill-name">React</span></div>
                       <div className="skill-badge"><span className="skill-name">Django</span></div>
                       <div className="skill-badge"><span className="skill-name">.NET</span></div>
-                      <div className="skill-badge"><span className="skill-name">Node.js</span></div>
                     </div>
                   </div>
                   
@@ -500,7 +498,6 @@ function App() {
                     <h4>TOOLS</h4>
                     <div className="skills-container">
                       <div className="skill-badge"><span className="skill-name">Git</span></div>
-                      <div className="skill-badge"><span className="skill-name">Docker</span></div>
                       <div className="skill-badge"><span className="skill-name">SQL</span></div>
                       <div className="skill-badge"><span className="skill-name">Unity</span></div>
                     </div>
@@ -513,14 +510,12 @@ function App() {
                 <div className="work-experience">
                   <div className="work-item">
                     <div className="work-header">
-                      <h4>Full Stack Developer</h4>
-                      <span className="work-period">2022 - Present</span>
+                      <h4>Intern Developer</h4>
+                      <span className="work-period">February 2025 - March 2025</span>
                     </div>
-                    <div className="work-company">TechVision Solutions</div>
+                    <div className="work-company">BRYCEN VIETNAM Co., Ltd.</div>
                     <p className="work-description">
-                      Developed and maintained web applications using React, Node.js, and MongoDB.
-                      Implemented responsive designs and optimized application performance.
-                      Collaborated with cross-functional teams to deliver high-quality software solutions.
+                      Task management WBS web project using C#, ReactJS and MariaDB
                     </p>
                   </div>
                 </div>
@@ -529,14 +524,16 @@ function App() {
                 <div className="education-list">
                   <div className="education-item">
                     <div className="education-header">
-                      <h4>Bachelor of Computer Science</h4>
-                      <span className="education-period">2020 - 2024</span>
+                      <h4>Bachelor of Science in Information Technology</h4>
+                      <span className="education-period">2021 - 2025</span>
                     </div>
                     <div className="education-school">
-                      Da Nang University of Science and Technology
+                      Da Nang University of Science and Technology (DUT)
                     </div>
                     <div className="education-description">
-                      Focused on web development, algorithms, and software engineering principles.
+                      Specializing in Information Security
+                      <br />
+                      GPA: 3.23
                     </div>
                   </div>
                 </div>
@@ -545,22 +542,24 @@ function App() {
                 <div className="certification-list">
                   <div className="certification-item">
                     <div className="certification-header">
-                      <h4>Web Development Certification</h4>
-                      <span className="certification-date">2022</span>
+                      <h4>IELTS Academic: 7.5</h4>
+                      <span className="certification-date">August 2024</span>
                     </div>
-                    <div className="certification-issuer">FreeCodeCamp</div>
-                    <p className="certification-description">
-                      Completed full-stack web development curriculum covering modern JavaScript frameworks.
-                    </p>
                   </div>
                   <div className="certification-item">
                     <div className="certification-header">
-                      <h4>React Developer Certification</h4>
-                      <span className="certification-date">2023</span>
+                      <h4>Japanese Language Proficiency Test (JLPT): N5 Level</h4>
+                      <span className="certification-date">August 2017</span>
                     </div>
-                    <div className="certification-issuer">Meta</div>
+                  </div>
+                  <div className="certification-item">
+                    <div className="certification-header">
+                      <h4>Cyber Security Fundamentals</h4>
+                      <span className="certification-date">September 2024</span>
+                    </div>
+                    <div className="certification-issuer">AGEST Vietnam</div>
                     <p className="certification-description">
-                      Advanced React concepts including hooks, context API, and performance optimization.
+                      16 hours intensive course
                     </p>
                   </div>
                 </div>
@@ -607,11 +606,11 @@ function App() {
               <div className="contact-info">
                 <div className="contact-item">
                   <span className="contact-label">EMAIL:</span>
-                  <span className="contact-value">your.email@example.com</span>
+                  <span className="contact-value">b3bpro123@gmail.com</span>
                 </div>
                 <div className="contact-item">
                   <span className="contact-label">PHONE:</span>
-                  <span className="contact-value">+84 123 456 789</span>
+                  <span className="contact-value">+84 762 762 892</span>
                 </div>
                 <div className="contact-item">
                   <span className="contact-label">LOCATION:</span>
