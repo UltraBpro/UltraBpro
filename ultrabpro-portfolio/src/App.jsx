@@ -27,6 +27,7 @@ function App() {
   const [healthDepleted, setHealthDepleted] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
   const categories = ["All", "Web Development", "Desktop Applications", "Game Development"];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Set page title
   useEffect(() => {
@@ -47,80 +48,80 @@ function App() {
     "a",
   ];
 
-  // Projects data with categories
+  // Projects data with folder names only
   const projects = [
     {
       id: 1,
+      name: "Game-Themed Portfolio",
+      category: "Web Development",
+      folderName: "portfolio",
+      description: "A retro game-themed personal portfolio website with interactive elements, secret Konami code features, and responsive design. Built with modern React and CSS animations.",
+      position: "Full-Stack Developer",
+      tech: ["React", "JavaScript", "CSS3", "Responsive Design"],
+      link: "https://github.com/UltraBpro/UltraBpro",
+      demo: window.location.origin,
+    },
+    {
+      id: 2,
       name: "Hotel Management System",
       category: "Desktop Applications",
-      image: "https://placehold.co/200x300/227/fff?text=Hotel+Management",
+      folderName: "hotel",
       description: "A .NET desktop application for hotel management with Windows Forms UI and LINQ to Entities for database queries.",
       position: "Full-Stack Developer",
       tech: [".NET", "C#", "SQL Server", "Windows Forms"],
       link: "https://github.com/UltraBpro/PBNL3",
     },
     {
-      id: 2,
+      id: 3,
       name: "Chinese Chess (Xiangqi)",
       category: "Game Development",
-      image: "https://placehold.co/200x300/722/fff?text=Chess",
+      folderName: "chinesechess",
       description: "Online Chinese Chess game with AI opponent using minimax algorithm and TCP protocol for real-time multiplayer.",
       position: "Full-Stack Developer",
       tech: ["Unity", "C#", "Game Development", "TCP/IP"],
       link: "https://github.com/UltraBpro/ChineseChessPBL4",
-      demo: "https://www.youtube.com/watch?v=BEHGfq9IDzI",
+      demo: "https://www.youtube.com/watch?v=BEHGFq9IDzI",
     },
     {
-      id: 3,
+      id: 4,
       name: "Intrusion Detection System",
       category: "Web Development",
-      image: "https://placehold.co/200x300/272/fff?text=IDS",
+      folderName: "ids",
       description: "An IDS for Django web apps that detects and warns of attacks by reading logs using regex with flexible rule updates.",
       position: "Full-Stack Developer",
       tech: ["Python", "Django", "Regex", "Security"],
       link: "https://github.com/UltraBpro/Django_IDS",
     },
     {
-      id: 4,
+      id: 5,
       name: "Geolocation Attendance App",
       category: "Web Development",
-      image: "https://placehold.co/200x300/227/fff?text=Attendance",
+      folderName: "attendance",
       description: "A web-based attendance tracking system using geolocation services to verify user's physical presence.",
       position: "Full-Stack Developer",
       tech: ["Python", "Django", "Geolocation API", "Web Development"],
       link: "https://github.com/UltraBpro/WebChamCongPython",
     },
     {
-      id: 5,
+      id: 6,
       name: "Library Management System",
       category: "Web Development",
-      image: "https://placehold.co/200x300/252/fff?text=Library",
+      folderName: "library",
       description: "A university library management web application with search functionality and highlighted books display.",
       position: "Full-Stack Developer",
       tech: ["Python", "Django", "Web Development", "Database"],
       link: "#",
     },
     {
-      id: 6,
+      id: 7,
       name: "Java Bullet Hell Game",
       category: "Game Development",
-      image: "https://placehold.co/200x300/272/fff?text=Bullet+Hell",
+      folderName: "bullethell",
       description: "A basic 2D bullet hell shooting game using pure Java, without relying on any pre-existing game engines.",
       position: "Full-Stack Developer",
       tech: ["Java", "Game Development", "2D Graphics"],
       link: "https://github.com/UltraBpro/JavaBulletHell",
       demo: "https://www.youtube.com/watch?v=cZ6t5GBCda8",
-    },
-    {
-      id: 7,
-      name: "Game-Themed Portfolio",
-      category: "Web Development",
-      image: "https://placehold.co/200x300/227/fff?text=Portfolio",
-      description: "A retro game-themed personal portfolio website with interactive elements, secret Konami code features, and responsive design. Built with modern React and CSS animations.",
-      position: "Full-Stack Developer",
-      tech: ["React", "JavaScript", "CSS3", "Responsive Design"],
-      link: "https://github.com/UltraBpro/UltraBpro",
-      demo: window.location.origin, // Links to the current site
     },
   ];
 
@@ -281,6 +282,162 @@ function App() {
     document.dispatchEvent(event);
   };
 
+  // Function to navigate through images
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => 
+      (prev + 1) % characterSelected.images.length
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === 0 ? characterSelected.images.length - 1 : prev - 1
+    );
+  };
+
+  // Custom hook to load project images
+  const useProjectImages = (folderName) => {
+    const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+      if (!folderName) {
+        setImages([]);
+        setLoading(false);
+        return;
+      }
+      
+      // Function to import all images from a folder
+      const loadImages = async () => {
+        try {
+          // This uses Vite's import.meta.glob to dynamically import images
+          const imageFiles = import.meta.glob('/public/projects/**/*.{png,jpg,jpeg,gif,webp}', { eager: true });
+          
+          // Filter images that belong to the current project folder
+          const folderPath = `/public/projects/${folderName}/`;
+          const projectImages = Object.entries(imageFiles)
+            .filter(([path]) => path.startsWith(folderPath))
+            .map(([path, module]) => ({
+              path: path.replace('/public', ''),
+              url: module.default || path.replace('/public', '')
+            }));
+          
+          // Sort images to ensure logo.png comes first
+          projectImages.sort((a, b) => {
+            if (a.path.includes('logo')) return -1;
+            if (b.path.includes('logo')) return 1;
+            return a.path.localeCompare(b.path);
+          });
+          
+          setImages(projectImages);
+        } catch (error) {
+          console.error("Error loading project images:", error);
+          setImages([]);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      loadImages();
+    }, [folderName]);
+    
+    return { images, loading };
+  };
+
+  const ProjectDetails = ({ project, onBack }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const { images, loading } = useProjectImages(project.folderName);
+    
+    const nextImage = () => {
+      if (images.length > 0) {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      }
+    };
+    
+    const prevImage = () => {
+      if (images.length > 0) {
+        setCurrentImageIndex((prev) => 
+          prev === 0 ? images.length - 1 : prev - 1
+        );
+      }
+    };
+    
+    return (
+      <div className="project-details">
+        <button className="back-button" onClick={onBack}>
+          BACK
+        </button>
+        <div className="project-card-large">
+          <div className="project-gallery">
+            {loading ? (
+              <div className="loading-indicator">Loading images...</div>
+            ) : images.length > 0 ? (
+              <>
+                <img
+                  src={images[currentImageIndex].url}
+                  alt={`${project.name} screenshot ${currentImageIndex + 1}`}
+                  className="gallery-image"
+                />
+                {images.length > 1 && (
+                  <div className="gallery-controls">
+                    <button className="gallery-nav prev" onClick={prevImage}>
+                      ◀
+                    </button>
+                    <div className="gallery-indicator">
+                      {currentImageIndex + 1}/{images.length}
+                    </div>
+                    <button className="gallery-nav next" onClick={nextImage}>
+                      ▶
+                    </button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="no-images">No images available</div>
+            )}
+          </div>
+          
+          {/* Rest of project details */}
+          <div className="project-info">
+            <h3>{project.name}</h3>
+            <div className="project-position">
+              <span>Position:</span> {project.position}
+            </div>
+            <p>{project.description}</p>
+            <div className="tech-stack">
+              <h4>TECH STACK:</h4>
+              <ul>
+                {project.tech.map((tech, index) => (
+                  <li key={index}>{tech}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="project-links">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="view-button"
+              >
+                VIEW CODE
+              </a>
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="demo-button"
+                >
+                  VIEW DEMO
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="game-container">
       <header className="game-header">
@@ -428,84 +585,33 @@ function App() {
           <div className="projects-screen">
             <h2 className="section-title">SELECT YOUR PROJECT</h2>
             
-            {characterSelected ? (
-              <div className="project-details">
-                <button
-                  className="back-button"
-                  onClick={() => setCharacterSelected(null)}
-                >
-                  BACK
-                </button>
-                <div className="project-card-large">
-                  <img
-                    src={characterSelected.image}
-                    alt={characterSelected.name}
-                  />
-                  <div className="project-info">
-                    <h3>{characterSelected.name}</h3>
-                    <div className="project-position">
-                      <span>Position:</span> {characterSelected.position}
+            {!characterSelected ? (
+              <div className="character-select-container">
+                <div className="character-select" id="projectsContainer">
+                  {filteredProjects.map((project) => (
+                    <div
+                      key={project.id}
+                      className="character-card"
+                      onClick={() => setCharacterSelected(project)}
+                    >
+                      <img 
+                        src={`/projects/${project.folderName}/logo.png`} 
+                        alt={project.name}
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "https://placehold.co/200x300/227/fff?text=" + encodeURIComponent(project.name);
+                        }}
+                      />
+                      <h3>{project.name}</h3>
                     </div>
-                    <p>{characterSelected.description}</p>
-                    <div className="tech-stack">
-                      <h4>TECH STACK:</h4>
-                      <ul>
-                        {characterSelected.tech.map((tech, index) => (
-                          <li key={index}>{tech}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="project-links">
-                      <a
-                        href={characterSelected.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="view-button"
-                      >
-                        VIEW CODE
-                      </a>
-                      {characterSelected.demo && (
-                        <a
-                          href={characterSelected.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="demo-button"
-                        >
-                          VIEW DEMO
-                        </a>
-                      )}
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             ) : (
-              <>
-                <div className="category-filters">
-                  {categories.map(category => (
-                    <button 
-                      key={category}
-                      className={`category-button ${activeCategory === category ? 'active' : ''}`}
-                      onClick={() => setActiveCategory(category)}
-                    >
-                      {category}
-                    </button>
-                  ))}
-                </div>
-                <div className="character-select-container">
-                  <div className="character-select" id="projectsContainer">
-                    {filteredProjects.map((project) => (
-                      <div
-                        key={project.id}
-                        className="character-card"
-                        onClick={() => setCharacterSelected(project)}
-                      >
-                        <img src={project.image} alt={project.name} />
-                        <h3>{project.name}</h3>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </>
+              <ProjectDetails 
+                project={characterSelected} 
+                onBack={() => setCharacterSelected(null)} 
+              />
             )}
           </div>
         )}
