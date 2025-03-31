@@ -26,6 +26,11 @@ function App() {
   const [showCoinMessage, setShowCoinMessage] = useState(false);
   const [healthDepleted, setHealthDepleted] = useState(false);
 
+  // Set page title
+  useEffect(() => {
+    document.title = "Portfolio - UltraBpro";
+  }, []);
+
   // Konami code array
   const konamiCode = [
     "ArrowUp",
@@ -67,6 +72,22 @@ function App() {
       description: "A bullet hell style game developed with Java.",
       tech: ["Java", "Game Development"],
       link: "https://github.com/UltraBpro/JavaBulletHell",
+    },
+    {
+      id: 4,
+      name: "Web Attendance System",
+      image: "https://placehold.co/200x300/227/fff?text=Attendance",
+      description: "A web-based attendance tracking system built with Python.",
+      tech: ["Python", "Web Development"],
+      link: "https://github.com/UltraBpro/WebChamCongPython",
+    },
+    {
+      id: 4,
+      name: "Web Attendance System",
+      image: "https://placehold.co/200x300/227/fff?text=Attendance",
+      description: "A web-based attendance tracking system built with Python.",
+      tech: ["Python", "Web Development"],
+      link: "https://github.com/UltraBpro/WebChamCongPython",
     },
     {
       id: 4,
@@ -284,7 +305,7 @@ function App() {
               </div>
               <div className="character-info">
                 {secretModeActive ? (
-                  <h2 className="glitch-text-fixed">UltraBpro</h2>
+                  <h2 className="game-title">UltraBpro</h2>
                 ) : (
                   <h2>LE VAN CHIEN</h2>
                 )}
@@ -376,7 +397,7 @@ function App() {
         {selectedSection === "projects" && (
           <div className="projects-screen">
             <h2 className="section-title">SELECT YOUR PROJECT</h2>
-
+            
             {characterSelected ? (
               <div className="project-details">
                 <button
@@ -413,17 +434,19 @@ function App() {
                 </div>
               </div>
             ) : (
-              <div className="character-select">
-                {projects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="character-card"
-                    onClick={() => setCharacterSelected(project)}
-                  >
-                    <img src={project.image} alt={project.name} />
-                    <h3>{project.name}</h3>
-                  </div>
-                ))}
+              <div className="character-select-container">
+                <div className="character-select" id="projectsContainer">
+                  {projects.map((project) => (
+                    <div
+                      key={project.id}
+                      className="character-card"
+                      onClick={() => setCharacterSelected(project)}
+                    >
+                      <img src={project.image} alt={project.name} />
+                      <h3>{project.name}</h3>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -433,11 +456,7 @@ function App() {
           <div className="about-screen">
             <h2 className="section-title">FIGHTER PROFILE</h2>
             <div className="bio-container">
-              <div className="bio-image">
-                <img
-                  src="https://placehold.co/300x400/333/fff?text=CHIEN"
-                  alt="Profile"
-                />
+              <div className="bio-left">
                 <div className="bio-stats">
                   <div className="bio-stat">
                     <span>LEVEL</span>
@@ -452,23 +471,58 @@ function App() {
                     <span>FULL STACK</span>
                   </div>
                 </div>
-              </div>
-              <div className="bio-text">
-                <h3>BACKGROUND STORY</h3>
-                <p>
-                  A passionate developer with a love for creating innovative
-                  solutions. Started coding at a young age and never stopped
-                  leveling up. Currently pursuing a degree in Computer Science
-                  at Da Nang University of Science and Technology.
-                </p>
-
-                <h3 className="skills-title">SKILL SET</h3>
-                <div className="skills-container">
-                  {skills.map((skill, index) => (
-                    <div key={index} className="skill-badge">
-                      <span className="skill-name">{skill.name}</span>
+                
+                <div className="skills-section">
+                  <h3 className="skills-title">SKILL SET</h3>
+                  
+                  <div className="skill-category">
+                    <h4>LANGUAGES</h4>
+                    <div className="skills-container">
+                      <div className="skill-badge"><span className="skill-name">C++</span></div>
+                      <div className="skill-badge"><span className="skill-name">C#</span></div>
+                      <div className="skill-badge"><span className="skill-name">Python</span></div>
+                      <div className="skill-badge"><span className="skill-name">Java</span></div>
+                      <div className="skill-badge"><span className="skill-name">JavaScript</span></div>
                     </div>
-                  ))}
+                  </div>
+                  
+                  <div className="skill-category">
+                    <h4>FRAMEWORKS</h4>
+                    <div className="skills-container">
+                      <div className="skill-badge"><span className="skill-name">React</span></div>
+                      <div className="skill-badge"><span className="skill-name">Django</span></div>
+                      <div className="skill-badge"><span className="skill-name">.NET</span></div>
+                      <div className="skill-badge"><span className="skill-name">Node.js</span></div>
+                    </div>
+                  </div>
+                  
+                  <div className="skill-category">
+                    <h4>TOOLS</h4>
+                    <div className="skills-container">
+                      <div className="skill-badge"><span className="skill-name">Git</span></div>
+                      <div className="skill-badge"><span className="skill-name">Docker</span></div>
+                      <div className="skill-badge"><span className="skill-name">SQL</span></div>
+                      <div className="skill-badge"><span className="skill-name">Unity</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bio-text">
+                <h3>WORK EXPERIENCE</h3>
+                <div className="work-experience">
+                  <div className="work-item">
+                    <div className="work-header">
+                      <h4>Full Stack Developer</h4>
+                      <span className="work-period">2022 - Present</span>
+                    </div>
+                    <div className="work-company">TechVision Solutions</div>
+                    <p className="work-description">
+                      Developed and maintained web applications using React, Node.js, and MongoDB.
+                      Implemented responsive designs and optimized application performance.
+                      Collaborated with cross-functional teams to deliver high-quality software solutions.
+                    </p>
+                  </div>
                 </div>
 
                 <h3>EDUCATION</h3>
@@ -481,9 +535,32 @@ function App() {
                     <div className="education-school">
                       Da Nang University of Science and Technology
                     </div>
-                    <p className="education-description">
-                      Specialized in Software Engineering with focus on web
-                      development and AI applications.
+                    <div className="education-description">
+                      Focused on web development, algorithms, and software engineering principles.
+                    </div>
+                  </div>
+                </div>
+
+                <h3>CERTIFICATIONS</h3>
+                <div className="certification-list">
+                  <div className="certification-item">
+                    <div className="certification-header">
+                      <h4>Web Development Certification</h4>
+                      <span className="certification-date">2022</span>
+                    </div>
+                    <div className="certification-issuer">FreeCodeCamp</div>
+                    <p className="certification-description">
+                      Completed full-stack web development curriculum covering modern JavaScript frameworks.
+                    </p>
+                  </div>
+                  <div className="certification-item">
+                    <div className="certification-header">
+                      <h4>React Developer Certification</h4>
+                      <span className="certification-date">2023</span>
+                    </div>
+                    <div className="certification-issuer">Meta</div>
+                    <p className="certification-description">
+                      Advanced React concepts including hooks, context API, and performance optimization.
                     </p>
                   </div>
                 </div>
@@ -514,8 +591,6 @@ function App() {
             </div>
 
             <div className="contact-form">
-              
-
               <div className="form-group">
                 <label>YOUR NAME</label>
                 <input type="text" placeholder="ENTER YOUR NAME" />
