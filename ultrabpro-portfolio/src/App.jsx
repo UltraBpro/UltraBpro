@@ -344,7 +344,7 @@ function App() {
             <div className="character-intro">
               <div className="character-avatar">
                 <img
-                  src={secretModeActive?"102210199-lower.jpg":"102210199-cooler.jpg"}
+                  src={secretModeActive?"102210199-cooler.jpg":"102210199-lower.jpg"}
                   alt="Character Avatar"
                 />
               </div>
