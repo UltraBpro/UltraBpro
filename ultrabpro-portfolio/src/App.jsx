@@ -344,8 +344,11 @@ function App() {
             <div className="character-intro">
               <div className="character-avatar">
                 <img
-                  src={secretModeActive?"tom-pointing-and-laughing.png":"102210199-lower.jpg"}
+                  src={secretModeActive ? "/tom-pointing-and-laughing.png" : "/102210199-lower.jpg"}
                   alt="Character Avatar"
+                  loading="eager"
+                  width="250"
+                  height="300"
                 />
               </div>
               <div className="character-info">
@@ -695,13 +698,13 @@ function App() {
                 className="action-button button-a"
                 onClick={() => handleControlPress("a")}
               >
-                A
+                  A
               </button>
               <button
                 className="action-button button-b"
                 onClick={() => handleControlPress("b")}
               >
-                B
+                  B 
               </button>
             </div>
           </div>
