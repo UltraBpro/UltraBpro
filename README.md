@@ -27,7 +27,7 @@
 
 <div align="center">
   <a href="http://www.github.com/UltraBpro">
-    <img height=210 align="center" src="https://github-readme-stats.vercel.app/api?username=UltraBpro&card_width=150&include_all_commits=true" />
+    <img height=210 align="center" src="https://github-readme-stats.vercel.app/api?username=UltraBpro&card_width=150" />
   </a>
 </div>
 
