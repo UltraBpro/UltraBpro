@@ -986,7 +986,9 @@ body:not(.secret-mode) .glitch-text {
     flex-direction: column;
     text-align: center;
   }
-  
+  .character-avatar {
+    margin-bottom: 50px; /* Add bottom margin to prevent overlap */
+  }
   .stats-container, .bio-container {
     flex-direction: column;
     align-items: center;
@@ -1221,7 +1223,7 @@ body::before {
   pointer-events: none;
   z-index: 9999;
   opacity: 0.3;
-  animation: scanline 50s linear infinite;
+  animation: scanline 100s linear infinite;
 }
 
 @keyframes scanline {
