@@ -296,6 +296,44 @@ function App() {
     );
   };
 
+  // Add this useEffect for preloading images
+  useEffect(() => {
+    // Function to preload images
+    const preloadImages = () => {
+      console.log("Preloading images...");
+      
+      // Preload project images
+      projects.forEach(project => {
+        // Preload thumbnail
+        const thumbnailImg = new Image();
+        thumbnailImg.src = `/projects/${project.folderName}/logo.png`;
+        
+        // Preload any additional project images if needed
+        // You can add more specific image preloading here
+      });
+      
+      // Preload avatar images
+      const avatarImg1 = new Image();
+      avatarImg1.src = "/102210199-lower.jpg";
+      
+      const avatarImg2 = new Image();
+      avatarImg2.src = "/102210199-cooler.jpg";
+      
+      // Preload Tom meme
+      const tomImg = new Image();
+      tomImg.src = "/tom-pointing-and-laughing.png";
+      
+      // Preload any other important images
+      const bgImg = new Image();
+      bgImg.src = "/background-secret.gif";
+      
+      console.log("Image preloading initiated");
+    };
+    
+    // Call the preload function
+    preloadImages();
+  }, []);
+
   return (
     <div className="game-container">
       <header className="game-header">
