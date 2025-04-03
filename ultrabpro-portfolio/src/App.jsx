@@ -30,6 +30,8 @@ function App() {
   const [activeCategory, setActiveCategory] = useState("All");
   const categories = ["All", "Web Development", "Desktop Applications", "Game Development"];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Set page title
   useEffect(() => {
@@ -323,46 +325,102 @@ function App() {
     preloadImages();
   }, []);
 
+  // Add responsive detection
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="game-container">
       <header className="game-header">
         <h1 className="game-title">
           ULTRABPRO'S PORTFOLIO <span className="blink">↑↑↓↓←→←→BA</span>
         </h1>
-        <div className="nav-buttons">
-          <button
-            className={`game-button ${
-              selectedSection === "home" ? "active" : ""
-            }`}
-            onClick={() => setSelectedSection("home")}
-          >
-            HOME
-          </button>
-          <button
-            className={`game-button ${
-              selectedSection === "projects" ? "active" : ""
-            }`}
-            onClick={() => setSelectedSection("projects")}
-          >
-            PROJECTS
-          </button>
-          <button
-            className={`game-button ${
-              selectedSection === "about" ? "active" : ""
-            }`}
-            onClick={() => setSelectedSection("about")}
-          >
-            ABOUT
-          </button>
-          <button
-            className={`game-button ${
-              selectedSection === "contact" ? "active" : ""
-            }`}
-            onClick={() => setSelectedSection("contact")}
-          >
-            CONTACT
-          </button>
-        </div>
+        {isMobile ? (
+          <div className="mobile-nav">
+            <button 
+              className="mobile-menu-button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            {mobileMenuOpen && (
+              <div className="mobile-nav-buttons">
+                <button
+                  className={`game-button ${selectedSection === "home" ? "active" : ""}`}
+                  onClick={() => {
+                    setSelectedSection("home");
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  HOME
+                </button>
+                <button
+                  className={`game-button ${selectedSection === "projects" ? "active" : ""}`}
+                  onClick={() => {
+                    setSelectedSection("projects");
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  PROJECTS
+                </button>
+                <button
+                  className={`game-button ${selectedSection === "about" ? "active" : ""}`}
+                  onClick={() => {
+                    setSelectedSection("about");
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  ABOUT
+                </button>
+                <button
+                  className={`game-button ${selectedSection === "contact" ? "active" : ""}`}
+                  onClick={() => {
+                    setSelectedSection("contact");
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  CONTACT
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="nav-buttons">
+            <button
+              className={`game-button ${selectedSection === "home" ? "active" : ""}`}
+              onClick={() => setSelectedSection("home")}
+            >
+              HOME
+            </button>
+            <button
+              className={`game-button ${selectedSection === "projects" ? "active" : ""}`}
+              onClick={() => setSelectedSection("projects")}
+            >
+              PROJECTS
+            </button>
+            <button
+              className={`game-button ${selectedSection === "about" ? "active" : ""}`}
+              onClick={() => setSelectedSection("about")}
+            >
+              ABOUT
+            </button>
+            <button
+              className={`game-button ${selectedSection === "contact" ? "active" : ""}`}
+              onClick={() => setSelectedSection("contact")}
+            >
+              CONTACT
+            </button>
+          </div>
+        )}
       </header>
 
       <main className="game-content">
@@ -407,6 +465,7 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-icon github"
+                    aria-label="GitHub Profile"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
