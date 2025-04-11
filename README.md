@@ -4,7 +4,6 @@
 ### Skills
 
 <p align="left">
-<p align="center">
   <!-- Languages -->
   <img src="https://img.shields.io/badge/-C++-%2300599C?style=for-the-badge&logo=cplusplus&logoColor=white" />
   <img src="https://img.shields.io/badge/-C%23-%23239120?style=for-the-badge&logo=csharp&logoColor=white" />
@@ -13,11 +12,9 @@
   <img src="https://img.shields.io/badge/-HTML5-%23E34F26?style=for-the-badge&logo=html5&logoColor=white" />
   <img src="https://img.shields.io/badge/-CSS3-%231572B6?style=for-the-badge&logo=css3&logoColor=white" />
 </p>
-<p align="center">
   <!-- Frontend -->
   <img src="https://img.shields.io/badge/-React-%2320232a?style=for-the-badge&logo=react&logoColor=%2361DAFB" />
 </p>
-<p align="center">
   <!-- Backend -->
   <img src="https://img.shields.io/badge/-Django-%23092E20?style=for-the-badge&logo=django&logoColor=white" />
   <img src="https://img.shields.io/badge/-.NET-%235C2D91?style=for-the-badge&logo=dotnet&logoColor=white" />
@@ -25,7 +22,6 @@
   <img src="https://img.shields.io/badge/-MariaDB-%23003545?style=for-the-badge&logo=mariadb&logoColor=white" />
   <img src="https://img.shields.io/badge/-MySQL-%234479A1?style=for-the-badge&logo=mysql&logoColor=white" />
 </p>
-<p align="center">
   <!-- Tools -->
   <img src="https://img.shields.io/badge/-Git-%23F05033?style=for-the-badge&logo=git&logoColor=white" />
   <img src="https://img.shields.io/badge/-Unity-%23000000?style=for-the-badge&logo=unity&logoColor=white" />
