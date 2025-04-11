@@ -19,6 +19,7 @@
   <img src="https://img.shields.io/badge/-React-%2320232a?style=for-the-badge&logo=react&logoColor=%2361DAFB" />
 </p>
   <!-- Backend -->
+<p>
   <img src="https://img.shields.io/badge/-Django-%23092E20?style=for-the-badge&logo=django&logoColor=white" />
   <img src="https://img.shields.io/badge/-.NET-%235C2D91?style=for-the-badge&logo=dotnet&logoColor=white" />
   <img src="https://img.shields.io/badge/-MS_SQL-%23CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white" />
