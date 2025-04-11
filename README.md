@@ -4,7 +4,9 @@
 ### Skills
 
 <p align="left">
+
   <!-- Languages -->
+<p>
   <img src="https://img.shields.io/badge/-C++-%2300599C?style=for-the-badge&logo=cplusplus&logoColor=white" />
   <img src="https://img.shields.io/badge/-C%23-%23239120?style=for-the-badge&logo=csharp&logoColor=white" />
   <img src="https://img.shields.io/badge/-Python-%2314354C?style=for-the-badge&logo=python&logoColor=white" />
@@ -13,6 +15,7 @@
   <img src="https://img.shields.io/badge/-CSS3-%231572B6?style=for-the-badge&logo=css3&logoColor=white" />
 </p>
   <!-- Frontend -->
+<p>
   <img src="https://img.shields.io/badge/-React-%2320232a?style=for-the-badge&logo=react&logoColor=%2361DAFB" />
 </p>
   <!-- Backend -->
@@ -23,6 +26,7 @@
   <img src="https://img.shields.io/badge/-MySQL-%234479A1?style=for-the-badge&logo=mysql&logoColor=white" />
 </p>
   <!-- Tools -->
+<p>
   <img src="https://img.shields.io/badge/-Git-%23F05033?style=for-the-badge&logo=git&logoColor=white" />
   <img src="https://img.shields.io/badge/-Unity-%23000000?style=for-the-badge&logo=unity&logoColor=white" />
 </p>
