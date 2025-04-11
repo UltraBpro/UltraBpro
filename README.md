@@ -22,7 +22,7 @@
 <p>
   <img src="https://img.shields.io/badge/-Django-%23092E20?style=for-the-badge&logo=django&logoColor=white" />
   <img src="https://img.shields.io/badge/-.NET-%235C2D91?style=for-the-badge&logo=dotnet&logoColor=white" />
-  <img src="https://img.shields.io/badge/-MS_SQL-%23CC2927?style=for-the-badge&logo=mssqlserver-white" />
+  <img src="https://img.shields.io/badge/-MS_SQL-%23CC2927?style=for-the-badge&logo=mssqlserver" />
   <img src="https://img.shields.io/badge/-MariaDB-%23003545?style=for-the-badge&logo=mariadb&logoColor=white" />
   <img src="https://img.shields.io/badge/-MySQL-%234479A1?style=for-the-badge&logo=mysql&logoColor=white" />
 </p>
