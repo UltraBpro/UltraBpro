@@ -54,6 +54,15 @@ function App() {
 
   // Projects data with folder names only
   const projects = [
+      {
+      id: 0,
+      name: "Anything Turn-Based",
+      category: "Game Development",
+      folderName: "atb",
+      description: "A 2D online turn-based fighting game using Unity for gameplay, ASP.NET Core for server-side logic, and ReactJS for player web dashboard.",
+      position: "Full-Stack Developer",
+      tech: ["Unity", "C#", "Game Development", ".NET", "SignalR","ReactJs"],
+    },
     {
       id: 2,
       name: "Hotel Management System",

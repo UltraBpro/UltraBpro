@@ -124,14 +124,16 @@ const ProjectDetails = ({ project, onBack }) => {
             </ul>
           </div>
           <div className="project-links">
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="view-button"
-            >
-              VIEW CODE
-            </a>
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="view-button"
+              >
+                VIEW CODE
+              </a>
+            )}
             {project.demo && (
               <a
                 href={project.demo}
